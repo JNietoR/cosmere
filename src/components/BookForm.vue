@@ -5,7 +5,7 @@
   
         <!-- Formulario para introducir libros en leído o pendiente usando v-if, v-else, v-for, v-model y v-bind -->
         <div id="form-container">
-          <input v-model="bookName" type="text" name="bookName" id="bookName" class="text-black p-2 m-2">
+          <input v-model="bookCover" type="text" name="bookCover" id="bookCover" class="text-black p-2 m-2 w-full" placeholder="Introduce el enlace a la portada del libro">
           <div id="button-form-container">
             <button @click="saveBook('readedBooks')"
               class="w-full border border-orange-300 hover:border-gray-500 cursor-pointer bg-gray-900 p-2 m-2">Guardar en
@@ -17,15 +17,17 @@
         </div>
         <!-- Fin formulario -->
   
-        <!-- Details de libros pendientes -->
+        <!-- Details de libros leidos -->
         <details v-if="readedBooks.length > 0" class="flex flex-col items-center justify-center w-full">
           <summary
             v-bind:class="{ 'mb-4 p-2 border border-orange-300 hover:border-gray-500 cursor-pointer w-2/4 m-auto bg-gray-900': true }">
             {{ `Has leido ${readedBooks.length} libro/s` }}
           </summary>
-          <div class="flex flex-col justify-center items-center">
+          <div class="flex flex-col justify-center items-center mb-4">
             <div v-for="(book, index) in readedBooks" :key="index" class="flex flex-col items-center mx-4">
-              <span class="mb-4">Genial has terminado <b>{{ book.title }}</b>.</span>
+              <img :src="book.cover" alt="Portada del libro"
+              class="w-full md:w-50 lg:w-60 h-auto mb-2 md:mb-0">
+              <button @click="removeBook('readedBooks', index)" class="text-red-500 cursor-pointer">Eliminar</button>
             </div>
           </div>
         </details>
@@ -45,7 +47,9 @@
           </summary>
           <div class="flex flex-col justify-center items-center">
             <div v-for="(book, index) in pendantBooks" :key="index" class="flex flex-col items-center mx-4">
-              <span class="mb-4">Cuando piensas leer <b>{{ book.title }}</b>.</span>
+              <img :src="book.cover" alt="Portada del libro"
+              class="w-full md:w-50 lg:w-60 h-auto mb-2 md:mb-0">
+              <button @click="removeBook('pendantBooks', index)" class="text-red-500 cursor-pointer">Eliminar</button>
             </div>
           </div>
         </details>
@@ -63,10 +67,10 @@
   <script setup>
   import { ref } from 'vue';
   
-  const bookName = ref('');
+  const bookCover = ref('');
   
   const saveBook = (list) => {
-    const newBook = { title: bookName.value };
+    const newBook = { cover: bookCover.value };
     // Agrega el nuevo libro a la lista correspondiente
     if (list === 'readedBooks') {
       readedBooks.value.push(newBook);
@@ -74,8 +78,16 @@
       pendantBooks.value.push(newBook);
     }
     // Limpia el input después de guardar el libro
-    bookName.value = '';
+    bookCover.value = '';
   };
+
+  const removeBook = (list, index) => {
+  if (list === 'readedBooks') {
+    readedBooks.value.splice(index, 1);
+  } else if (list === 'pendantBooks') {
+    pendantBooks.value.splice(index, 1);
+  }
+};
   
   const readedBooks = ref([]);
   const pendantBooks = ref([]);
