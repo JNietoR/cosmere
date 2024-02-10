@@ -9,10 +9,10 @@
           placeholder="Introduce el enlace a la portada del libro">
         <div id="button-form-container">
           <button @click="saveBook('readedBooks', bookCover)"
-            class="w-full border border-orange-300 hover:border-gray-500 cursor-pointer bg-gray-900 p-2 m-2">Guardar en
+            class="w-full border border-orange-300 hover:border-gray-500 cursor-pointer bg-gray-900 p-2 m-2">Guardar como
             leídos</button>
           <button @click="saveBook('pendantBooks', bookCover)"
-            class="w-full border border-orange-300 hover:border-gray-500 cursor-pointer bg-gray-900 p-2 m-2">Guardar en
+            class="w-full border border-orange-300 hover:border-gray-500 cursor-pointer bg-gray-900 p-2 m-2">Guardar como
             pendientes</button>
         </div>
       </div>
