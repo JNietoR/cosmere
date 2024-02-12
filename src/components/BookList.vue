@@ -14,9 +14,13 @@
                 </summary>
                 <div class="flex flex-row justify-center items-center">
                     <div v-for="(book, index) in stormlight" :key="index" class="flex flex-col items-center mx-4">
-                        <a :href="book.link" target="_blank" rel="noopener noreferrer">
-                            <img :src="book.portrait" alt="Portada del libro" class="w-100 sm:w-25 md:w-50 lg:w-60 h-auto mb-2">
+                        <a :href="book.portrait" target="_blank" rel="noopener noreferrer">
+                            <img :src="book.portrait" alt="Portada del libro"
+                                class="w-100 sm:w-25 md:w-50 lg:w-60 h-auto mb-2">
                         </a>
+                        <a :href="book.link"
+                            class="w-full  font-bold border-2 rounded-full border-orange-300 hover:text-blue-400 hover:border-blue-400 cursor-pointer bg-gray-900 p-2 m-2 mb-8">Gooble
+                            Books</a>
                     </div>
                 </div>
             </details>
@@ -30,10 +34,13 @@
                 </summary>
                 <div class="flex flex-row justify-center items-center">
                     <div v-for="(book, index) in mistborn" :key="index" class="flex flex-col items-center mx-4">
-                        <a :href="book.link" target="_blank" rel="noopener noreferrer">
+                        <a :href="book.portrait" target="_blank" rel="noopener noreferrer">
                             <img :src="book.portrait" alt="Portada del libro"
                                 class="w-full md:w-50 lg:w-60 h-auto mb-2 my-4 md:mb-0">
                         </a>
+                        <a :href="book.link"
+                            class="w-full  font-bold border-2 rounded-full border-orange-300 hover:text-blue-400 hover:border-blue-400 cursor-pointer bg-gray-900 p-2 m-2 mb-8">Gooble
+                            Books</a>
                     </div>
                 </div>
             </details>
@@ -47,9 +54,12 @@
                 </summary>
                 <div class="flex flex-row justify-center items-center">
                     <div v-for="(book, index) in secretBooks" :key="index" class="flex flex-col items-center mx-4">
-                        <a :href="book.link" target="_blank" rel="noopener noreferrer">
+                        <a :href="book.portrait" target="_blank" rel="noopener noreferrer">
                             <img :src="book.portrait" alt="Portada del libro" class="w-100 md:w-50 lg:w-60 h-auto mb-2">
                         </a>
+                        <a :href="book.link"
+                            class="w-full  font-bold border-2 rounded-full border-orange-300 hover:text-blue-400 hover:border-blue-400 cursor-pointer bg-gray-900 p-2 m-2 mb-8">Gooble
+                            Books</a>
                     </div>
                 </div>
             </details>
@@ -74,7 +84,7 @@ const mistborn = [
     { id: 4, title: 'Alación de ley', author: 'Brandon Sanderson', portrait: 'https://m.media-amazon.com/images/I/81tA+z79OAL._SL1500_.jpg', link: 'https://books.google.es/books?id=Xd04AwAAQBAJ&printsec=frontcover&hl=es&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false' },
     { id: 5, title: 'Sombras de identidad', author: 'Brandon Sanderson', portrait: 'https://m.media-amazon.com/images/I/81hwuKpsYdL._SL1500_.jpg', link: 'https://books.google.es/books?id=PXokDQAAQBAJ&printsec=frontcover&hl=es&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false' },
     { id: 6, title: 'Brazales de duelo', author: 'Brandon Sanderson', portrait: 'https://m.media-amazon.com/images/I/81HoDo4lhZL._SL1500_.jpg', link: 'https://books.google.es/books?id=e1YlDwAAQBAJ&printsec=frontcover&hl=es&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false' },
-    
+
 ];
 const secretBooks = [
     { id: 1, title: 'Trenza del mar esmeralda', author: 'Brandon Sanderson', portrait: 'https://books.google.es/books/publisher/content?id=hWSmEAAAQBAJ&hl=es&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U2x28IZNHvJo4vBwg7rY5_v1ZxsTQ&w=1280', link: 'https://www.google.es/books/edition/Trenza_del_mar_Esmeralda/hWSmEAAAQBAJ?hl=es&gbpv=0' },
@@ -83,8 +93,6 @@ const secretBooks = [
     { id: 3, title: 'Mago frugal', author: 'Brandon Sanderson', portrait: 'https://books.google.es/books/publisher/content?id=N0e3EAAAQBAJ&hl=es&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U0inXcDrskFIS-dXoNyyJfxKgo5sQ&w=1280', link: 'https://www.google.es/books/edition/La_gu%C3%ADa_del_mago_frugal_para_sobrevivir/N0e3EAAAQBAJ?hl=es&gbpv=0' },
 ];
 </script>
-<style scoped>
-.text-shadow-md {
+<style scoped>.text-shadow-md {
     text-shadow: 3px 3px 3px #b67600, -3px -3px 3px #b67600, 3px -3px 3px #b67600, -3px 3px 3px #b67600;
-}
-</style>
+}</style>

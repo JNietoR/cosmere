@@ -6,7 +6,7 @@
       <!-- Formulario para introducir libros en leído o pendiente usando v-if, v-else, v-for, v-model y v-bind -->
       <div id="form-container">
         <input v-model="bookCover" type="text" name="bookCover" id="bookCover" class="text-black p-2 m-2 w-full"
-          placeholder="Introduce el enlace a la portada del libro">
+          placeholder="Arrastra un libro o introduce el enlace a la portada">
         <div id="button-form-container">
           <button @click="saveBook('readedBooks', bookCover)"
             class="w-full  font-bold border-2 rounded-full  border-orange-300 hover:text-green-400 hover:border-green-400 cursor-pointer bg-gray-900 p-2 m-2">Guardar
